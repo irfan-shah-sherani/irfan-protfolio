@@ -6,6 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 import Navebar from "./components/Nav"
 import Hero from "./components/Hero"
+// import Hero from "./3D/hero"
 import About from "./components/About"
 import SKill from "./components/Skill"
 import Profile from "./components/Profile"
@@ -15,6 +16,8 @@ import Contact from "./components/Contact"
 import Chat from "./components/Chat"
 import { useGSAP } from "@gsap/react"
 import Footer from "./components/Footer"
+import Background from "./3D/hero"
+
 
 export default function App(){
 
@@ -38,7 +41,8 @@ useGSAP(() => {
 
 
   return (
-    <div className="border-4 bg-gray-200 border-amber-300 overflow-y-hidden scrollbar-hide">
+    <div className="border-4 border-amber-300 overflow-y-hidden scrollbar-hide">
+      <Background/>
       <Navebar/>
       <Hero innerRef={heroRef} />
       <About/>

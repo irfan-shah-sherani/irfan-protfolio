@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+import Background from "../3D/hero";
 
 export default function Profile() {
   const sectionRef = useRef(null);
@@ -39,31 +40,32 @@ export default function Profile() {
       ref={sectionRef}
       className="relative w-screen h-screen overflow-hidden bg-white"
     >
+      <Background/>
       <div
         ref={scrollerRef}
         className="flex items-center h-full gap-2 px-8"
       >
         <div className="w-full lg:min-w-[80vw] h-auto lg:h-full flex flex-col gap-4 justify-center items-center shrink-0 rounded-md">
       <div className="w-full lg:w-5xl h-48 lg:h-120 bg-red-300">1</div>
-      <h1 className="font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
+      <h1 className=" text-white font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
     </div>
 
     {/* Card 2 */}
     <div className="w-full lg:min-w-[80vw] h-auto lg:h-full flex flex-col gap-4 justify-center items-center shrink-0 rounded-md">
       <div className="w-full lg:w-5xl h-48 lg:h-120 bg-red-300">2</div>
-      <h1 className="font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
+      <h1 className=" text-white font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
     </div>
 
     {/* Card 3 */}
     <div className="w-full lg:min-w-[80vw] h-auto lg:h-full flex flex-col gap-4 justify-center items-center shrink-0 rounded-md">
       <div className="w-full lg:w-5xl h-48 lg:h-120 bg-red-300">3</div>
-      <h1 className="font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
+      <h1 className=" text-white font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
     </div>
 
     {/* Card 4 */}
     <div className="w-full lg:min-w-[80vw] h-auto lg:h-full flex flex-col gap-4 justify-center items-center shrink-0 rounded-md">
       <div className="w-full lg:w-5xl h-48 lg:h-120 bg-red-300">4</div>
-      <h1 className="font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
+      <h1 className=" text-white font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
     </div>
         
       </div>

@@ -1,6 +1,7 @@
 import { useRef} from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import Back from "../3D/hero"
 
 export default function Hero({innerRef}) {
   const left = useRef();
@@ -31,10 +32,11 @@ export default function Hero({innerRef}) {
   return (
     <section ref={innerRef} className="flex  items-center justify-around px-10 py-24 flex-col md:flex-row h-screen">
       {/* Left Text */}
-      <div ref={left} className="text-black flex flex-col  gap-0 relative z-2">
+      <Back />
+      <div ref={left} className="text-white flex flex-col  gap-0 relative z-2">
         <div   className="text-3xl font-bold">
           I am {" "}
-          <span className="text-black font-bold">
+          <span className="text-white font-bold">
              Irfan Khan
           </span>
         </div>
