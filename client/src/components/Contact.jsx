@@ -21,9 +21,9 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="relative w-screen h-auto py-20 bg-black text-white overflow-hidden">
+    <section className="relative w-screen h-auto py-20 bg-black dark:bg-transparent text-white overflow-hidden">
       {/* Top Wave */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-50">
+      <div className="absolute top-0 left-0 w-full overflow-hidden dark:hidden leading-[0] z-50">
         <svg
           className="relative block w-full h-16"
           xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +114,7 @@ export default function ContactForm() {
       </div>
 
       {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180 z-50">
+      <div className="absolute bottom-0 left-0 w-full dark:hidden overflow-hidden leading-[0] rotate-180 z-50">
         <svg
           className="relative block w-full h-16"
           xmlns="http://www.w3.org/2000/svg"

@@ -8,19 +8,19 @@ export default function Sky() {
   useFrame(() => {
     if (starsRef.current) {
       starsRef.current.rotation.y += 0.0002
-      starsRef.current.rotation.x += 0.0004
+      starsRef.current.rotation.x += 0.0002 
     }
   })
 
   return (
     <Stars
       ref={starsRef}
-      radius={200}
-      depth={50}
-      count={4000}
-      factor={10}
-      saturation={0.8}
-      fade
+      radius={300}
+      // depth={100}
+      count={2000}
+      // factor={10}
+      saturation={1000}
+      // fade
     />
   )
 }

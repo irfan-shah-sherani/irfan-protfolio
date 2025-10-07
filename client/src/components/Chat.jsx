@@ -2,10 +2,22 @@ import { RxCross2 } from "react-icons/rx";
 import { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 import axios from "axios";
+import { BiSolidMessageSquare } from "react-icons/bi";
 
 const socket = io("http://localhost:3000");
 
 export default function Chat() {
+
+  const [isOpen,setIsOpen] = useState([false])
+
+  const toggleMes = ()=>{
+     if (!isOpen) {
+    setIsOpen(true);
+    
+  } else{
+    setIsOpen(false);
+  }
+  }
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
 
@@ -58,20 +70,20 @@ export default function Chat() {
 
     const newMsg = { userId, role: currentUserRole, message: text };
 
-    // Emit message to server (server will save & broadcast)
     socket.emit("sendMessage", newMsg);
 
-    // Optimistic update
     setMessages((prev) => [...prev, newMsg]);
     setText("");
   };
 
   return (
     <section className="fixed flex flex-row bottom-10 right-10 gap-2 z-200">
-      <div className="h-100 flex flex-col bg-white/40 border-1 border-white backdrop-blur-lg rounded-md shadow-lg w-80">
-        <RxCross2 size={20} className="m-2 ml-auto cursor-pointer" />
+      {
+        isOpen ?  <BiSolidMessageSquare onClick={toggleMes} size={30} className=" dark:text-white cursor-pointer"/> :
 
-        {/* Messages container */}
+        <div className="h-100 flex flex-col bg-white/40 dark:bg-white/5 border-[1px] border-white backdrop-blur-lg rounded-md shadow-lg w-80">
+        <RxCross2 size={20}  onClick={toggleMes}  className="m-2 ml-auto cursor-pointer dark:text-white" />
+       
         <div className="flex-1 px-2 overflow-y-auto space-y-3 scrollbar-hide">
           {messages.map((msg, idx) => (
             <div
@@ -90,7 +102,6 @@ export default function Chat() {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Input box */}
         <div className="self-end w-full flex">
           <input
             type="text"
@@ -104,6 +115,9 @@ export default function Chat() {
           </button>
         </div>
       </div>
+      }
+      
+     
     </section>
   );
 }
