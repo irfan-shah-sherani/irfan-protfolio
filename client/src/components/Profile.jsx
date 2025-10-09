@@ -32,7 +32,7 @@ export default function Profile() {
         ease: "none",
         scrollTrigger: {
           trigger: section,
-          start: "top top",
+          start: "top 15%",
           end: () => "+=" + totalScroll,
           pin: true,
           scrub: 0.4,
@@ -48,7 +48,7 @@ export default function Profile() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-screen h-screen overflow-hidden"
+      className=" absoulute overflow-hidden"
     >
       <div
         ref={scrollerRef}
@@ -59,8 +59,7 @@ export default function Profile() {
             key={profile.id}
             className="flex flex-col gap-4 justify-start items-center shrink-0 w-full sm:min-w-[80vw] md:min-w-[60vw] lg:min-w-[40vw] rounded-md"
           >
-       
-            <div className="w-full rounded-lg overflow-hidden h-64 sm:h-72 md:h-80 lg:h-[500px] xl:h-[600px]">
+            <div className="w-250 h-130 rounded-lg">
               <img
                 src={`/projects/${profile.img}`}
                 alt={profile.title}

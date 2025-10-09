@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa"
 
 export default function Footer() {
   return (
-    <footer className="relative bg-white text-black pt-20 pb-8 dark:bg-transparent">
+    <footer className="relative  text-black pt-20 pb-8 dark:bg-transparent">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-20">
           <div>
@@ -44,7 +44,7 @@ export default function Footer() {
             <a href="#"><FaEnvelope /></a>
           </div>
         </div>
-    
+
         <div className="flex justify-center gap-6 text-xs text-black  dark:text-white">
           <a href="#">Terms & Conditions</a>
           <a href="#">Privacy Policy</a>

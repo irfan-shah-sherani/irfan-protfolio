@@ -37,7 +37,7 @@ useGSAP(() => {
 
   return (
     <section className="h-auto md:px-20 px5 flex flex-col justify-center py-20 items-center   gap-10">
-      <h1 className="text-3xl text-white text-center font-bold ">My Skills</h1>
+      <h1 className="text-3xl dark:text-white text-black text-center font-bold ">My Skills</h1>
       <div ref={skill} className="flex flex-wrap justify-center gap-10 ">
         {skills.map((skill, index) => {
           const Icon = skill.Icone; 

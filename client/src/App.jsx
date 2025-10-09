@@ -1,4 +1,4 @@
-import { useRef,useEffect } from "react"
+import { useRef, useEffect } from "react"
 import { gsap } from "gsap/gsap-core"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -18,25 +18,25 @@ import { useGSAP } from "@gsap/react"
 import Footer from "./components/Footer"
 import Night from "./3D/Day"
 
-export default function App(){
+export default function App() {
 
-const heroRef = useRef();
-const aboutRef = useRef();
+  const heroRef = useRef();
+  const aboutRef = useRef();
 
 
 
-useGSAP(() => {
-  gsap.to(heroRef.current, {
-    scrollTrigger: {
-      trigger: heroRef.current,
-      start: "0% 0%",
-      pin: true,
-      end: "+=100%",
-      pinSpacing: false,
-    },
-     zIndex: 0,
+  useGSAP(() => {
+    gsap.to(heroRef.current, {
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "0% 0%",
+        pin: true,
+        end: "+=100%",
+        pinSpacing: false,
+      },
+      zIndex: 0,
+    });
   });
-});
 
 
   return (
@@ -44,16 +44,16 @@ useGSAP(() => {
       <div className="fixed top-0 left-0 w-full dark:block  hidden h-screen -z-10">
         <Sky />
       </div>
-      <Navebar/>  
+      <Navebar />
       <Hero innerRef={heroRef} />
-      <About/>
-      <SKill/>
-      <Profile/>
-      <Experience/>
-      <Testtimonail/>
-      <Contact/>
-      <Footer/>
-      <Chat/>
+      <About />
+      <SKill />
+      <Profile />
+      <Experience />
+      <Testtimonail />
+      <Contact />
+      <Footer />
+      <Chat />
     </div>
   )
 }
