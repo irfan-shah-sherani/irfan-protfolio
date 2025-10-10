@@ -1,12 +1,18 @@
-
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Profile() {
   const sectionRef = useRef(null);
   const scrollerRef = useRef(null);
+
+  const [profiles] = useState([
+    { id: 1, title: "Profile of video as BackB", img: "1.png" },
+    { id: 2, title: "Profile of a editor BackB", img: "1.png" },
+    { id: 3, title: "S of video editor BackC", img: "1.png" },
+  ]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -14,19 +20,24 @@ export default function Profile() {
       const scroller = scrollerRef.current;
       if (!section || !scroller) return;
 
-      let getScrollDistance = () => scroller.scrollWidth - window.innerWidth;
+      const cards = scroller.children;
+      const cardWidth =
+        cards[0].offsetWidth +
+        parseFloat(getComputedStyle(cards[0]).marginRight);
+
+      const totalScroll = cardWidth * (cards.length - 1);
 
       gsap.to(scroller, {
-        x: () => -getScrollDistance(),
+        x: () => -totalScroll,
         ease: "none",
         scrollTrigger: {
           trigger: section,
-          start: "top top",
-          end: () => "+=" + getScrollDistance(),
+          start: "top 15%",
+          end: () => "+=" + totalScroll,
           pin: true,
-          scrub: 0,
+          scrub: 0.9,
           invalidateOnRefresh: true,
-        //   markers: true, // debug only
+          anticipatePin: 1,
         },
       });
     }, sectionRef);
@@ -37,35 +48,29 @@ export default function Profile() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-screen h-screen overflow-hidden bg-white"
+      className=" absoulute overflow-hidden"
     >
       <div
         ref={scrollerRef}
-        className="flex items-center h-full gap-2 px-8"
+        className="flex items-center h-full  gap-6 px-6 lg:px-12"
       >
-        <div className="w-full lg:min-w-[80vw] h-auto lg:h-full flex flex-col gap-4 justify-center items-center shrink-0 rounded-md">
-      <div className="w-full lg:w-5xl h-48 lg:h-120 bg-red-300">1</div>
-      <h1 className="font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
-    </div>
-
-    {/* Card 2 */}
-    <div className="w-full lg:min-w-[80vw] h-auto lg:h-full flex flex-col gap-4 justify-center items-center shrink-0 rounded-md">
-      <div className="w-full lg:w-5xl h-48 lg:h-120 bg-red-300">2</div>
-      <h1 className="font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
-    </div>
-
-    {/* Card 3 */}
-    <div className="w-full lg:min-w-[80vw] h-auto lg:h-full flex flex-col gap-4 justify-center items-center shrink-0 rounded-md">
-      <div className="w-full lg:w-5xl h-48 lg:h-120 bg-red-300">3</div>
-      <h1 className="font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
-    </div>
-
-    {/* Card 4 */}
-    <div className="w-full lg:min-w-[80vw] h-auto lg:h-full flex flex-col gap-4 justify-center items-center shrink-0 rounded-md">
-      <div className="w-full lg:w-5xl h-48 lg:h-120 bg-red-300">4</div>
-      <h1 className="font-bold text-xl lg:text-2xl text-center">Profile of video editor</h1>
-    </div>
-        
+        {profiles.map((profile) => (
+          <div
+            key={profile.id}
+            className="flex flex-col gap-4 justify-start items-center shrink-0 w-full sm:min-w-[80vw] md:min-w-[60vw] lg:min-w-[40vw] rounded-md"
+          >
+            <div className="md:w-250 md:h-130 w-90 h-60 flex flex-row justify-center items-center rounded-lg mx-10 overflow-hidden border-[1px] border-white shadow-lg">
+              <img
+                src={`/projects/${profile.img}`}
+                alt={profile.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h1 className="text-black dark:text-white font-bold text-lg sm:text-xl lg:text-2xl text-center">
+              {profile.title}
+            </h1>
+          </div>
+        ))}
       </div>
     </section>
   );
