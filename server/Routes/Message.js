@@ -4,7 +4,6 @@ import Message from "../models/message.js";
 const router = express.Router();
 
 
-// get all messages
 router.get("/users",async (req,res)=>{
    try {
     
@@ -28,7 +27,6 @@ router.post("/user", async (req, res) => {
   }
 });
 
-// post a new message
 router.post("/", async (req, res) => {
   try {
     const { userId, role, message } = req.body;

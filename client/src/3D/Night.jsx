@@ -1,8 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import Sky from "./stars";
-// import Water from "./Water";
-// import Text from "./Text";
 
 export default function Hero() {
   return (

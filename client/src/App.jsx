@@ -16,7 +16,6 @@ import Contact from "./components/Contact"
 import Chat from "./components/Chat"
 import { useGSAP } from "@gsap/react"
 import Footer from "./components/Footer"
-import Night from "./3D/Day"
 
 export default function App() {
 
