@@ -35,7 +35,7 @@ export default function Profile() {
           start: "top 15%",
           end: () => "+=" + totalScroll,
           pin: true,
-          scrub: 0.4,
+          scrub: 0.9,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
@@ -59,7 +59,7 @@ export default function Profile() {
             key={profile.id}
             className="flex flex-col gap-4 justify-start items-center shrink-0 w-full sm:min-w-[80vw] md:min-w-[60vw] lg:min-w-[40vw] rounded-md"
           >
-            <div className="w-250 h-130 rounded-lg">
+            <div className="md:w-250 md:h-130 w-90 h-60 flex flex-row justify-center items-center rounded-lg mx-10 overflow-hidden border-[1px] border-white shadow-lg">
               <img
                 src={`/projects/${profile.img}`}
                 alt={profile.title}

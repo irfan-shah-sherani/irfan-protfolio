@@ -25,8 +25,8 @@ useGSAP(() => {
   gsap.from(skill.current.children, {
     y: 200,
     opacity: 0,
-    duration: 1,
-    stagger:0.2,  
+    duration: 0.4,
+    stagger:0.1,  
     scrollTrigger: {
       trigger: skill.current, 
       start: "top 80%",

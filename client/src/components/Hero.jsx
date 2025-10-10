@@ -48,7 +48,7 @@ export default function Hero({ innerRef }) {
         </div>
       </div>
 
-      <div ref={right} className="bg-amber-400 rounded-full h-[400px] w-[400px] overflow-hidden">
+      <div ref={right} className="bg-amber-400 rounded-full   overflow-hidden">
         <img
           className="w-full h-full object-cover"
           src="BackC.png"

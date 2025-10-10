@@ -81,7 +81,7 @@ export default function Chat() {
       {
         isOpen ? <BiSolidMessageSquare onClick={toggleMes} size={30} className=" dark:text-white cursor-pointer" /> :
 
-          <div className="h-100 flex flex-col bg-white/40 dark:bg-white/5 border-[1px] border-white backdrop-blur-lg rounded-md shadow-lg w-80">
+          <div className="h-100 flex flex-col bg-white/40 dark:bg-white/5 border-[1px] border-white/40 backdrop-blur-lg rounded-md shadow-lg w-80">
             <RxCross2 size={20} onClick={toggleMes} className="m-2 ml-auto cursor-pointer dark:text-white" />
 
             <div className="flex-1 px-2 overflow-y-auto space-y-3 scrollbar-hide">
@@ -107,9 +107,9 @@ export default function Chat() {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-1 px-3 py-2 text-black border border-gray-300 focus:outline-none"
+                className="flex-1 px-3 py-2 text-black dark:text-white border border-white/40 focus:outline-none dark:placeholder-white  placeholder-gray-900"
               />
-              <button onClick={sendMessage} className="bg-blue-500 text-white px-4 py-2">
+              <button onClick={sendMessage} className="bg-blue-500 text-white px-4 py-2" >
                 Send
               </button>
             </div>
