@@ -1,3 +1,6 @@
 @import "tailwindcss";
 @plugin "tailwind-scrollbar-hide";
 @custom-variant dark (&:where(.dark, .dark *));
+* {
+  cursor: none;
+}

@@ -21,7 +21,7 @@ export default function App() {
 
   const heroRef = useRef();
   const aboutRef = useRef();
-
+  const cursor = useRef();
 
 
   useGSAP(() => {
@@ -36,6 +36,18 @@ export default function App() {
       zIndex: 0,
     });
   });
+
+  window.addEventListener("load", () => {
+    ScrollTrigger.refresh();
+  });
+
+    window.addEventListener("mousemove", (e) => {
+      gsap.set(cursor.current, {
+        x: e.x - 10,
+        y: e.y - 10,
+      });    
+  });
+
 
 
   return (
@@ -53,6 +65,12 @@ export default function App() {
       <Contact />
       <Footer />
       <Chat />
+     <Cursor curRef={cursor} />
     </div>
   )
-}
+} 
+function Cursor({curRef}) {
+  return (
+    <div ref={curRef} className="fixed z-[100000] top-0 left-0  h-[25px] w-[25px] bg-white border-2 border-black/20 rounded-full pointer-events-none "></div>
+  )
+} 
